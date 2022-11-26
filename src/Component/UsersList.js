@@ -1,16 +1,16 @@
 import axios, { formToJSON } from "axios";
-import React from "react";
+import {React, useEffect,useState} from "react";
 import {Modal,Input } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const baseURL = "https://127.0.0.1:8000/api/users";
 
 function UsersList() {
-  const [user, setUser] = React.useState(null);
+  const [user, setUser] = useState([]);
 
   const navigate = useNavigate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     getUsers();
   }, []);
 
@@ -23,7 +23,6 @@ function UsersList() {
   
   const updateUser= async (id) => {
     console.warn("id= "+id)
-  
     navigate('/edituser/'+id)
     
 }
@@ -38,8 +37,8 @@ function UsersList() {
     axios.delete(`https://127.0.0.1:8000/api/users/${id}`)
      .then(()=>{
 
+       getUsers();
        navigate("/userslist");
-       
        console.log("delete user :  " +id)
     })
   }
