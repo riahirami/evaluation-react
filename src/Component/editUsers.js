@@ -12,7 +12,7 @@ function EditUsers(props) {
     FirstName: "",
     LastName: "",
     Email: "",
-    Age: 0,
+    Age: "",
   });
 
   useEffect(() => {
@@ -44,10 +44,15 @@ function EditUsers(props) {
 
   function handle(e) {
     
-    const newData = { ...data };
+    const newData = { 
+        FirstName : data.FirstName,
+        LastName : data.LastName,
+        Age : data.Age,
+        Email: data.Email
+     };
      
-     newData[e.target.id] = e.target.value;
-     newData["Age"] = parseInt(e.target.value);
+    newData[e.target.id] = e.target.value;
+    newData["Age"] = parseInt(e.target.value);
     setData(newData);
   }
 
@@ -105,7 +110,7 @@ function EditUsers(props) {
               id="Age"
               className="form-control"
               onChange={(e) => handle(e)}
-              value={data.Age}
+              value={parseInt(data.Age)}
             />
           </div>
 
