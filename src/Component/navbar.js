@@ -9,11 +9,9 @@ import {
   function Navbar() {
  
     return (
-      <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
-        <Link className="nav-link" to="home">
-                  Home 
-                </Link>
+      <div className="justify-content-center">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top " >
+        
           <button
             className="navbar-toggler"
             type="button"
@@ -25,8 +23,14 @@ import {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul className="navbar-nav">
+            <li className="nav-item">
+
+            <Link className="nav-link" to="home">
+                  Home 
+                </Link>
+</li>
               <li className="nav-item">
                 <Link className="nav-link" to="userslist">
                   Users list 
